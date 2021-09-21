@@ -137,16 +137,16 @@ def min_max_scaler(train, valid, test):
     test[num_vars] = scaler.transform(test[num_vars])
     return scaler, train, valid, test
 
-def outlier_function(df, cols, k):
-	#function to detect and handle oulier using IQR rule
-    for col in df[cols]:
-        q1 = df.annual_income.quantile(0.25)
-        q3 = df.annual_income.quantile(0.75)
-        iqr = q3 - q1
-        upper_bound =  q3 + k * iqr
-        lower_bound =  q1 - k * iqr
-        df = df[(df[col] < upper_bound) & (df[col] > lower_bound)]
-    return df
+# def outlier_function(df, cols, k):
+# 	#function to detect and handle oulier using IQR rule
+#     for col in df[cols]:
+#         q1 = df.annual_income.quantile(0.25)
+#         q3 = df.annual_income.quantile(0.75)
+#         iqr = q3 - q1
+#         upper_bound =  q3 + k * iqr
+#         lower_bound =  q1 - k * iqr
+#         df = df[(df[col] < upper_bound) & (df[col] > lower_bound)]
+#     return df
 
 def get_mall_customers(sql):
     url = get_db_url('mall_customers')

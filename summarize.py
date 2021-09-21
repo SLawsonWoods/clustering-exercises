@@ -30,7 +30,7 @@ def summarize(df):
     print('=====================================================\n\n')
     print('Dataframe Description: ')
     print(df.describe().to_markdown())
-    num_cols = [col for col in df.columns if df[col].dtype != 'O']
+    num_cols = [col for col in df.columns if df[col].dtypes != 'O']
     cat_cols = [col for col in df.columns if col not in num_cols]
     print('=====================================================')
     print('DataFrame value counts: ')
